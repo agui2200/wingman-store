@@ -32,16 +32,16 @@ func GenerateCommand() *cobra.Command {
 				log.Fatalf("config file load error: %v", err)
 			}
 			var featureLists []gen.Feature
-			if config.C.FeatureEntQL {
+			if config.C.Feature.EntQL {
 				featureLists = append(featureLists, gen.FeatureEntQL)
 			}
-			if config.C.FeaturePrivacy {
+			if config.C.Feature.Privacy {
 				featureLists = append(featureLists, gen.FeaturePrivacy)
 			}
-			if config.C.FeatureSchemaConfig {
+			if config.C.Feature.SchemaConfig {
 				featureLists = append(featureLists, gen.FeatureSchemaConfig)
 			}
-			if config.C.FeatureSnapshot {
+			if config.C.Feature.Snapshot {
 				featureLists = append(featureLists, gen.FeatureSnapshot)
 			}
 			baseDir, _ := path.Split(cfile)

@@ -1,2 +1,9 @@
 schemapackage: schema
 targetpackage: store
+feature:
+  {
+    privacy: false,
+    entql: false,
+    snapshot: false,
+    schemaconfig: false
+  }

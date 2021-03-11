@@ -14,8 +14,15 @@ wingman-store generate
 
 # Use
 
-store.yml
+example store.yml
 ```yaml
 schemapackage: schema
 targetpackage: store
+feature:
+  {
+    privacy: false,
+    entql: false,
+    snapshot: false,
+    schemaconfig: false
+  }
 ```
