@@ -45,13 +45,22 @@ func Generate(schemaPath, targetPath, packageName, configFile string) error {
 	if err != nil {
 		return err
 	}
+	// schemaPath 换成相对路径
+	absSp, err := filepath.Abs(schemaPath)
+	if err != nil {
+		return err
+	}
+	sp, err := filepath.Rel(tpath, absSp)
+	if err != nil {
+		return err
+	}
 	d := struct {
 		PackageName string
 		SchemaPath  string
 		ConfigFile  string
 	}{
 		PackageName: path.Base(packageName),
-		SchemaPath:  schemaPath,
+		SchemaPath:  sp,
 		ConfigFile:  cc,
 	}
 	b, err := executeTemplate("generate.tmpl", d)
